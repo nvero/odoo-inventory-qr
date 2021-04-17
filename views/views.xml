@@ -1,0 +1,83 @@
+<odoo>
+
+  
+
+  <data>
+
+    <report id="action_label_transfer_qr_template_pdf"
+      model="stock.picking"
+      string="QR code (PDF)"
+      name="osm__inventory_qr.label_transfer_qr_template_view_pdf"
+      file="osm__inventory_qr.label_transfer_qr_template_view_pdf"
+      report_type="qweb-pdf"
+  />
+    <!--
+    <record id="osm__inventory_qr.my_qr2" model="ir.ui.view">
+      <field name="name">osm__inventory_qr.qr</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+      <field name="picking_type_id" position="after">
+        <field name="qr_image" />
+      </field>
+    </field>
+  </record>
+  -->
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="osm__inventory_qr.list">
+      <field name="name">osm__inventory_qr list</field>
+      <field name="model">osm__inventory_qr.osm__inventory_qr</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="osm__inventory_qr.action_window">
+      <field name="name">osm__inventory_qr window</field>
+      <field name="res_model">osm__inventory_qr.osm__inventory_qr</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="osm__inventory_qr.action_server">
+      <field name="name">osm__inventory_qr server</field>
+      <field name="model_id" ref="model_osm__inventory_qr_osm__inventory_qr"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="osm__inventory_qr" id="osm__inventory_qr.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="osm__inventory_qr.menu_1" parent="osm__inventory_qr.menu_root"/>
+    <menuitem name="Menu 2" id="osm__inventory_qr.menu_2" parent="osm__inventory_qr.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="osm__inventory_qr.menu_1_list" parent="osm__inventory_qr.menu_1"
+              action="osm__inventory_qr.action_window"/>
+    <menuitem name="Server to list" id="osm__inventory_qr" parent="osm__inventory_qr.menu_2"
+              action="osm__inventory_qr.action_server"/>
+-->
+  </data>
+</odoo>
