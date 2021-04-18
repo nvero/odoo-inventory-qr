@@ -12,8 +12,9 @@ class QRCodeInvoice(models.Model):
     qr_in_report = fields.Boolean('Show QR in Report')
 
     def _generate_qr_code(self):
-        base_url = request.env['ir.config_parameter'].get_param('web.base.url')
-        base_url += '/inventory/qr/?picking_id=%s&id=%s' % (self.picking_id.id,self.id)
-        self.qr_image = generate_qr_code(base_url)
+        for line in self:
+            base_url = request.env['ir.config_parameter'].get_param('web.base.url')
+            base_url += '/inventory/qr/?picking_id=%s&id=%s' % (line.picking_id.id,line.id)
+            line.qr_image = generate_qr_code(base_url)
 
 
